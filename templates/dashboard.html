@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="grid">
+    <section class="card">
+        <h2>Welcome, {{ session.get('user_name') }}</h2>
+        <p>This dashboard appears after successful login.</p>
+        <h3>API Endpoints</h3>
+        <ul class="api-list">
+            <li><code>GET /api/users</code> - Get all users</li>
+            <li><code>GET /api/users/&lt;id&gt;</code> - Get single user</li>
+            <li><code>POST /api/users</code> - Create user</li>
+            <li><code>PUT /api/users/&lt;id&gt;</code> - Full update user</li>
+            <li><code>PATCH /api/users/&lt;id&gt;</code> - Partial update user</li>
+            <li><code>DELETE /api/users/&lt;id&gt;</code> - Delete user</li>
+        </ul>
+        <h3>When do we use DELETE method?</h3>
+        <p>Use <strong>DELETE</strong> when you want to remove an existing resource permanently from the system, such as deleting a user, order, or product that is no longer needed.</p>
+    </section>
+
+    <section class="card">
+        <h2>Registered Users</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.full_name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.role }}</td>
+                    <td>{{ 'Active' if user.is_active else 'Inactive' }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="5">No users found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+</div>
+{% endblock %}
