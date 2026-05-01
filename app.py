@@ -111,7 +111,7 @@ def logout():
     flash('Logged out successfully.', 'success')
     return redirect(url_for('login'))
 
-
+# ----------------------Backend--------------------------
 @app.route('/api/users', methods=['GET'])
 @login_required
 def get_users():
@@ -232,11 +232,11 @@ def internal_error(_error):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        if not User.query.filter_by(email='admin@example.com').first():
+        if not User.query.filter_by(email='sabya@gmail.com').first():
             admin = User(
                 full_name='Admin User',
-                email='admin@example.com',
-                password_hash=generate_password_hash('Admin@123'),
+                email='sabya@gmail.com',
+                password_hash=generate_password_hash('Sabya@000'),
                 role='admin',
                 is_active=True,
             )
