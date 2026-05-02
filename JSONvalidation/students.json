@@ -1,0 +1,15 @@
+{
+  "id": 101,
+  "name": "Rahul",
+  "course": "Python Automation",
+  "fees_paid": true,
+  "skills": [
+    "Python",
+    "Selenium",
+    "API Testing"
+  ],
+  "address": {
+    "city": "Bhubaneswar",
+    "state": "Odisha"
+  }
+}
