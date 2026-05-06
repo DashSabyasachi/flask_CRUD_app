@@ -103,11 +103,22 @@ def delete_user(user_id):
 
 
 
-login_and_get_token()
-get_all_users()
-get_single_user(1)
-create_user()
-update_user_put(created_user_id)
-update_user_patch(created_user_id)
-delete_user(created_user_id)
+while True:
+    print("\n" + "=" * 50)
+    print("       FLASK API - FULL TEST SCRIPT")
+    print("=" * 50)
+
+    login_and_get_token()
+    get_all_users()
+    get_single_user(1)
+    create_user()
+    update_user_put(created_user_id)
+    update_user_patch(created_user_id)
+    delete_user(created_user_id)
+
+    print("\n" + "=" * 50)
+    choice = input("\n Do you want to run again? (yes/no): ").strip().lower()
+    if choice != "yes":
+        print("\n👋 Exiting... Goodbye!")
+        break
 
